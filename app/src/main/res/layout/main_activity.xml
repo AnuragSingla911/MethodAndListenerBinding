@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="activityMethod" type="bind.data.android.com.databinding.MainActivity"/>
+        <variable name="handlers" type="bind.data.android.com.databinding.MyHandlers"/>
+        <variable
+            name="name"
+            type="bind.data.android.com.databinding.Name" />
+
+
+    </data>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <TextView
+
+            android:layout_height="30dp"
+            android:background="#ff0000"
+            android:layout_width="wrap_content"
+            android:onClick="@{activityMethod::onClickX}"
+            android:text="@{name.name}" />
+
+
+        <TextView
+
+            android:layout_height="30dp"
+            android:background="#ff0000"
+            android:layout_width="wrap_content"
+            android:onClick="@{() -> handlers.onClickX()}"
+            android:text="@{name.name}" />
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:onClick="@{() -> handlers.onClickX(name)}"
+            android:text="@{name.lastName}" />
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:onClick="@{(theView) -> handlers.onClickX(theView,name)}"
+            android:text="@{name.lastName}" />
+
+
+
+        ]
+
+
+
+    </LinearLayout>
+</layout>
